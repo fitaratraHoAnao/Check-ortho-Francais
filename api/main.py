@@ -6,6 +6,12 @@ app = Flask(__name__)
 # URL de l'API LanguageTool
 LANGUAGETOOL_API_URL = "https://languagetool.org/api/v2/check"
 
+# Route principale qui affiche un message lorsque le serveur est en ligne
+@app.route('/')
+def home():
+    return "Votre API Flask correction orthographe français est en cours d'exécution...."
+
+# Route pour vérifier l'orthographe
 @app.route('/check', methods=['POST'])
 def check_text():
     # Récupérer le texte et la langue depuis la requête POST
